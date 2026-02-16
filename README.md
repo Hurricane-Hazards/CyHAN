@@ -2,7 +2,7 @@
 
 ## Standard v1.0
 
-CyHAN (pronounced *“cyan”*) establishes a unified computational architecture for high-performance scientific and engineering platforms.
+**CyHAN** (pronounced **“cyan”**) establishes a unified computational architecture for high-performance scientific and engineering platforms.
 
 It enforces:
 
