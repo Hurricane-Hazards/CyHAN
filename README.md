@@ -7,14 +7,14 @@ CyHAN (pronounced *“cyan”*) establishes a unified computational architecture
 It enforces:
 
 - A single canonical execution path  
-- Deterministic C++ compute engines  
+- High-performance C++ compute engines  
 - Python-based orchestration  
-- A versioned API boundary  
+- Authoritative API boundary  
 - Native Qt desktop clients  
 - Cloud-ready web frontends  
-- Desktop–cloud behavioral parity  
+- Desktop–cloud execution parity  
 
-All computation flows through one authoritative backend stack. No exceptions.
+All computation flows through one authoritative backend stack.
 
 ---
 
