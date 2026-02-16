@@ -60,6 +60,7 @@ CyHAN is compute-first, not UI-first.
 
 ### 3.1 Execution Topology
 
+```
 Qt Desktop Application (Qt C++)
 Web Frontend (React / Browser)
 │
@@ -69,6 +70,7 @@ Python API Layer
 Python Orchestration
 ▼
 C++ Engines
+```
 
 All compute **MUST** traverse this stack.
 
@@ -221,6 +223,7 @@ It **SHALL NOT**:
 
 ### 5.1 Canonical Flow
 
+```
 Client Request
 ↓
 Python API Validation
@@ -232,6 +235,7 @@ Engine Invocation
 Post-Processing
 ↓
 Response
+```
 
 All compute **SHALL** follow this sequence.
 
@@ -241,7 +245,9 @@ All compute **SHALL** follow this sequence.
 
 ### 6.1 Desktop Mode
 
+```
 Qt → Local or Remote API → Orchestration → C++
+```
 
 Changing deployment environment **SHALL** require only a configuration change.
 
@@ -249,7 +255,9 @@ Changing deployment environment **SHALL** require only a configuration change.
 
 ### 6.2 Cloud Mode
 
+```
 Browser → Cloud API → Orchestration → Distributed C++
+```
 
 Backend services may be containerized and horizontally scalable.
 
@@ -257,7 +265,9 @@ Backend services may be containerized and horizontally scalable.
 
 ### 6.3 CLI Mode
 
+```
 CLI → Orchestration → C++
+```
 
 CLI **MAY** bypass HTTP but **MUST NOT** bypass orchestration.
 
@@ -282,13 +292,15 @@ Desktop and cloud deployments **SHALL** produce equivalent computational results
 
 Minimum compliant structure:
 
+```
 backend/
 api/
-orchestration/
+orch/
 engines/
 cpp/
 frontend_desktop/
 frontend_web/
+```
 
 
 Backend is canonical.  
@@ -422,7 +434,9 @@ It is a structural doctrine governing system composition.
 
 The defining architectural principle is the **single canonical execution path**:
 
+```
 Client → Python API → Python Orchestration → C++ Engines
+```
 
 All compliant systems must respect this structure.
 
@@ -468,3 +482,132 @@ CyHAN systems may operate locally, on-premise, or in distributed cloud environme
 - **Network** describes connected, layered computational composition.
 
 Together, the name reflects a unified, execution-consistent system design rather than a collection of tools.
+
+---
+
+## 15. Recommended Folder Structure
+
+CyHAN prescribes a structural separation between backend authority and frontend adapters.  
+The folder structure below reflects the canonical layering model.
+
+This structure is recommended for all CyHAN-compliant implementations.
+
+---
+
+### 15.1 Canonical Layout
+
+```
+project-root/
+│
+├── backend/
+│   ├── api/
+        └── python/
+│   ├── orch/
+        └── python/
+│   └── engines/
+│       └── cpp/
+│
+├── frontend_desktop/
+│   └── qt_app/
+│
+├── frontend_cloud/
+│   └── web_app/
+│
+├── docs/
+│   └── CyHAN-Standard-v1.0.md
+│
+└── tests/
+```
+
+---
+
+### 15.2 Layer Mapping
+
+The directory layout directly mirrors the architectural layers:
+
+| Folder | Architectural Layer |
+|---------|--------------------|
+| `backend/api/python` | Python API Layer |
+| `backend/orch/python/` | Python Orchestration |
+| `backend/engines/cpp/` | C++ Engines |
+| `frontend_desktop/` | Qt Desktop Application |
+| `frontend_web/` | Web Frontend |
+
+The filesystem SHALL reflect the architectural separation of concerns.
+
+---
+
+### 15.3 Backend Authority
+
+The `backend/` directory is canonical.
+
+It SHALL:
+
+- Contain the authoritative execution path  
+- Enforce API → Orchestration → Engine flow  
+- Remain frontend-agnostic  
+- Contain no UI logic  
+
+Frontend directories SHALL NOT contain business logic or numerical kernels.
+
+---
+
+### 15.4 Engine Isolation
+
+The C++ engine layer SHALL:
+
+- Be isolated under `backend/engines/cpp/`  
+- Avoid dependencies on frontend directories  
+- Avoid HTTP or UI imports  
+- Remain portable and independently testable  
+
+Bindings (if used) SHALL not collapse layer boundaries.
+
+---
+
+### 15.5 Frontend Adapters
+
+Frontend directories are adapters to the backend.
+
+They MAY include:
+
+- UI rendering code  
+- Visualization utilities  
+- Local configuration  
+
+They SHALL NOT include:
+
+- Orchestration logic  
+- Numerical kernels  
+- Alternate execution paths  
+
+---
+
+### 15.6 Structural Doctrine
+
+The filesystem is not arbitrary.
+
+It encodes architectural doctrine:
+
+- Backend is authoritative.
+- Frontends are clients.
+- Engines are isolated.
+- Orchestration is centralized.
+
+The folder structure reinforces execution discipline and prevents architectural drift.
+
+### 15.7 Optional Extensions
+
+Implementations MAY include additional directories such as:
+
+```
+├── scripts/
+├── infrastructure/
+├── docker/
+├── ci/
+├── config/
+```
+
+Such additions SHALL NOT violate the canonical execution hierarchy.
+
+---
