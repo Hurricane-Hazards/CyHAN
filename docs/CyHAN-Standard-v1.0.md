@@ -6,7 +6,7 @@
 ## Document Control
 
 **Title:** C++/Python Hybrid Architecture Network (CyHAN) Standard v1.0  
-**Status:** Approved – Initial Release  
+**Status:** Initial Release  
 **Scope:** Desktop and Cloud Scientific Computing Platforms  
 **Audience:** System architects, HPC developers, scientific software engineers, technical leadership  
 
