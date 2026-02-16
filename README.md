@@ -1,4 +1,4 @@
-# Cpp-Python Hybrid Architecture Network (CyHAN)
+# C++ & Python Hybrid Architecture Network (CyHAN)
 
 ## Standard v1.0
 
