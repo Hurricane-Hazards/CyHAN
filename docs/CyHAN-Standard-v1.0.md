@@ -14,7 +14,7 @@
 
 ## 1. Purpose
 
-The **C++/Python Hybrid Architecture Network (CyHAN)** establishes a unified computational architecture with a single canonical execution path and reproducible execution semantics for high-performance scientific and engineering platforms.
+The **C++/Python Hybrid Architecture Network (CyHAN)** (pronounced **“cyan”**) establishes a unified computational architecture with a single canonical execution path and reproducible execution semantics for high-performance scientific and engineering platforms.
 
 This standard defines:
 
