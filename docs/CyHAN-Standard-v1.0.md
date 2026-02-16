@@ -360,4 +360,111 @@ CyHAN is not:
 - Web-only  
 - Multi-path  
 - Monolithic C++  
-- Python-only 
+- Python-only
+
+---
+
+## 14. Terminology Rationale
+
+The name **C++/Python Hybrid Architecture Network (CyHAN)** is deliberate.  
+Each term conveys a specific structural property of the system.
+
+---
+
+### 14.1 Why "Hybrid"
+
+CyHAN is *hybrid* because it intentionally combines multiple computational paradigms within a single coherent execution model.
+
+The hybridization occurs along three dimensions:
+
+#### Language Hybridization
+- **C++** provides high-performance, memory-efficient, numerically intensive computation.
+- **Python** provides orchestration, workflow governance, integration, and API control.
+
+Each language operates within clearly defined boundaries. Neither replaces the other.
+
+#### Deployment Hybridization
+- Native desktop execution (Qt C++)
+- Cloud-based web deployment (React / Browser)
+- Command-line execution
+
+All share the same backend execution path.
+
+#### Execution Hybridization
+- Compiled native engines for performance
+- Dynamic orchestration for flexibility
+- Controlled stochastic modeling with reproducible execution semantics
+
+Hybrid does not imply fragmentation.  
+It implies intentional integration of complementary capabilities.
+
+---
+
+### 14.2 Why "Architecture"
+
+CyHAN is an *architecture* because it defines structural rules governing:
+
+- Layer boundaries
+- Authority separation
+- Execution flow
+- Responsibility ownership
+- Compliance constraints
+
+An architecture specifies:
+
+- What each layer may do
+- What each layer must not do
+- How components interact
+- Where authority resides
+
+CyHAN is not a framework or a library.  
+It is a structural doctrine governing system composition.
+
+The defining architectural principle is the **single canonical execution path**:
+
+Client → Python API → Python Orchestration → C++ Engines
+
+All compliant systems must respect this structure.
+
+---
+
+### 14.3 Why "Network"
+
+CyHAN is a *network* because it connects multiple independent components through well-defined boundaries while preserving execution unity.
+
+The network dimension includes:
+
+#### Multi-Client Network
+- Qt Desktop client
+- Web client
+- CLI client
+- Automation clients
+
+#### Service Network
+- API layer
+- Orchestration layer
+- Distributed compute workers
+- Engine modules
+
+#### Execution Network
+Requests traverse a defined sequence of connected layers, forming a structured computational network.
+
+"Network" does not imply internet transport alone.  
+It reflects structured interconnection across:
+
+- Languages
+- Processes
+- Deployment environments
+- Compute nodes
+
+CyHAN systems may operate locally, on-premise, or in distributed cloud environments while maintaining architectural integrity.
+
+---
+
+### 14.4 Summary
+
+- **Hybrid** describes intentional multi-paradigm integration.
+- **Architecture** describes enforced structural doctrine.
+- **Network** describes connected, layered computational composition.
+
+Together, the name reflects a unified, execution-consistent system design rather than a collection of tools.
