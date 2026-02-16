@@ -1,1 +1,1 @@
-# CyHAN
+# CyHAN ("cyan")
