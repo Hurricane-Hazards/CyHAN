@@ -61,11 +61,12 @@ CyHAN is compute-first, not UI-first.
 ### 3.1 Execution Topology
 
 ```
-Qt Desktop Application (Qt C++)
-Web Frontend (React / Browser)
+Desktop Client (Qt C++)
+or
+Web Client (React / Browser)
 │
 ▼
-Python API Layer
+Python API
 ▼
 Python Orchestration
 ▼
@@ -224,17 +225,43 @@ It **SHALL NOT**:
 ### 5.1 Canonical Flow
 
 ```
-Client Request
+Client (Request)
+
 ↓
-Python API Validation
+
+API Layer
+• Schema validation
+• Authentication and authorization
+• Request dispatch
+
 ↓
-Orchestration Assembly
+
+Orchestration Layer
+• Workflow construction
+• Dependency resolution
+• Engine coordination
+
 ↓
-Engine Invocation
+
+C++ Engines
+• Deterministic numerical computation
+
 ↓
-Post-Processing
+
+Orchestration Layer
+• Result aggregation
+• Post-processing
+• Metadata enrichment
+
 ↓
-Response
+
+API Layer
+• Serialization
+• Response emission
+
+↓
+
+Client (Response)
 ```
 
 All compute **SHALL** follow this sequence.
@@ -246,7 +273,7 @@ All compute **SHALL** follow this sequence.
 ### 6.1 Desktop Mode
 
 ```
-Qt → Local or Remote API → Orchestration → C++
+Desktop Client → API → Orchestration → C++ Engines
 ```
 
 Changing deployment environment **SHALL** require only a configuration change.
@@ -256,7 +283,7 @@ Changing deployment environment **SHALL** require only a configuration change.
 ### 6.2 Cloud Mode
 
 ```
-Browser → Cloud API → Orchestration → Distributed C++
+Web Client → API → Orchestration → C++ Engines
 ```
 
 Backend services may be containerized and horizontally scalable.
@@ -266,10 +293,10 @@ Backend services may be containerized and horizontally scalable.
 ### 6.3 CLI Mode
 
 ```
-CLI → Orchestration → C++
+Command-Line Interface → Orchestration → C++ Engines
 ```
 
-CLI **MAY** bypass HTTP but **MUST NOT** bypass orchestration.
+CLI **MAY** bypass API layer but **MUST NOT** bypass orchestration.
 
 ---
 
@@ -308,16 +335,16 @@ Frontends are adapters.
 
 ---
 
-## 9. Prohibited Anti-Patterns
+## 9. Prohibited rchitectural Anti-Patterns
 
-The following violate CyHAN Standard v1.0:
+The following practices violate CyHAN Standard v1.0:
 
-- Direct Qt → C++ engine invocation  
-- Web → C++ engine invocation  
-- Separate desktop/cloud orchestration stacks  
-- UI-embedded numerical kernels  
-- Forked execution logic  
-- Backend duplication  
+- Direct Desktop Client → C++ Engine invocation  
+- Direct Web Client → C++ Engine invocation  
+- Parallel orchestration stacks for desktop and cloud deployments  
+- Numerical kernels embedded within UI layers  
+- Multiple or forked execution paths that bypass orchestration  
+- Duplication of backend logic across clients
 
 ---
 
@@ -501,17 +528,15 @@ project-root/
 │
 ├── backend/
 │   ├── api/
-        └── python/
+│   │   └── python/
 │   ├── orch/
-        └── python/
+│   │   └── python/
 │   └── engines/
 │       └── cpp/
 │
-├── frontend_desktop/
-│   └── qt_app/
-│
-├── frontend_cloud/
-│   └── web_app/
+├── frontend/
+│   ├── desktop/ 
+│   └── web/
 │
 ├── docs/
 │   └── CyHAN-Standard-v1.0.md
