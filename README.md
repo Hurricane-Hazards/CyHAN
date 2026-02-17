@@ -20,15 +20,18 @@ All computation flows through one authoritative backend stack.
 
 ## Core Architecture
 
-Qt Desktop Application (Qt C++)
-Web Frontend (React / Browser)
+```
+Desktop Client (Qt C++)
+or
+Web Client (React / Browser)
 │
 ▼
-Python API Layer
+Python API
 ▼
 Python Orchestration
 ▼
 C++ Engines
+```
 
 Both desktop and web clients are peers.
 
@@ -47,7 +50,9 @@ The ordering reflects:
 
 All production compute SHALL traverse:
 
+```
 Client → Python API → Python Orchestration → C++ Engines
+```
 
 No client may directly invoke C++ engines in compliant deployments.
 
@@ -150,19 +155,28 @@ Heavy computation lives here.
 
 ## Deployment Modes
 
+CyHAN supports multiple deployment modes.  
+All modes preserve the canonical execution path.
+
 ### Desktop Mode
 
-Qt → localhost API → Orchestration → C++
+```
+Desktop Client → API → Orchestration → C++ Engines
+```
 
 ### Cloud Mode
 
-Browser → Cloud API → Orchestration → Distributed C++
+```
+Web Client → API → Orchestration → C++ Engines
+```
 
 ### CLI Mode
 
-CLI → Orchestration → C++
+```
+Command-Line Interface → Orchestration → C++ Engines
+```
 
-CLI may bypass HTTP but must not bypass orchestration.
+The CLI mode MAY bypass the API layer but SHALL NOT bypass orchestration.
 
 ---
 
