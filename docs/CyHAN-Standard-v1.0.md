@@ -320,15 +320,16 @@ Desktop and cloud deployments **SHALL** produce equivalent computational results
 Minimum compliant structure:
 
 ```
-backend/
-api/
-orch/
-engines/
-cpp/
-frontend_desktop/
-frontend_web/
+project-root/
+│
+├── backend/
+│  
+├── frontend/
+│  
+├── docs/
+│  
+├── ...
 ```
-
 
 Backend is canonical.  
 Frontends are adapters.
@@ -555,8 +556,8 @@ The directory layout directly mirrors the architectural layers:
 | `backend/api/python` | Python API Layer |
 | `backend/orch/python/` | Python Orchestration |
 | `backend/engines/cpp/` | C++ Engines |
-| `frontend_desktop/` | Qt Desktop Application |
-| `frontend_web/` | Web Frontend |
+| `frontend/desktop/` | Qt Desktop Application |
+| `frontend/web/` | Web Frontend |
 
 The filesystem SHALL reflect the architectural separation of concerns.
 
