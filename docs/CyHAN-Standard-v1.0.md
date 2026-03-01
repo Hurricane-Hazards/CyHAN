@@ -326,8 +326,6 @@ project-root/
 │  
 ├── frontend/
 │  
-├── docs/
-│  
 ├── ...
 ```
 
@@ -536,13 +534,15 @@ project-root/
 │       └── cpp/
 │
 ├── frontend/
-│   ├── desktop/ 
+│   ├── desktop/
+│   │   └── qt/
 │   └── web/
+│       └── react/
 │
 ├── docs/
 │   └── CyHAN-Standard-v1.0.md
 │
-└── tests/
+└── ...
 ```
 
 ---
@@ -556,8 +556,8 @@ The directory layout directly mirrors the architectural layers:
 | `backend/api/python` | Python API Layer |
 | `backend/orch/python/` | Python Orchestration |
 | `backend/engines/cpp/` | C++ Engines |
-| `frontend/desktop/` | Qt Desktop Application |
-| `frontend/web/` | Web Frontend |
+| `frontend/desktop/qt` | Qt Desktop Application |
+| `frontend/web/react` | Web Frontend |
 
 The filesystem SHALL reflect the architectural separation of concerns.
 
